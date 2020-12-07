@@ -3,14 +3,22 @@
     "tasks": [
         {
             "type": "cppbuild",
+            "label": "Run Makefile",
+            "command": "makefile"
+        },
+        {
+            "type": "cppbuild",
             "label": "C/C++: clang++ build active file",
             "command": "/usr/bin/clang++",
-            "args": ["-std=c++17", "-g", "${file}", "-o", "${fileDirname}/${fileBasenameNoExtension}"],
+            "args": ["-std=c++17", "-g", "${file}", "-o", "${fileDirname}/build/${fileBasenameNoExtension}/bin"],
             "options": {
                 "cwd": "${workspaceFolder}"
             },
             "problemMatcher": ["$gcc"],
-            "group": "build",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
             "detail": "compiler: /usr/bin/clang++"
         }
     ]
