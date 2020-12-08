@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-#include "vec3.h"
+#include "common.h"
 
 void write_color(std::ostream &out, color pixel_color) {
     // Write the translated [0,255] value of each color component.

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ray.h"
+#include "common.h"
 
 struct hit_record {
     point3 p;
@@ -16,6 +16,6 @@ struct hit_record {
 
 class hittable {
    public:
-    virtual ~hittable() {}
+    virtual ~hittable() = default;
     virtual bool hit(const ray &r, double t_min, double t_max, hit_record &rec) const = 0;
 };

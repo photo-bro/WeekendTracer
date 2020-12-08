@@ -5,26 +5,22 @@
 
 #include "hittable.h"
 
-using std::make_shared;
-using std::shared_ptr;
-
 class hittable_list : public hittable {
    public:
     hittable_list() {}
     hittable_list(shared_ptr<hittable> object) { add(object); }
-
     ~hittable_list() = default;
 
     void clear() { objects.clear(); }
     void add(shared_ptr<hittable> object) { objects.push_back(object); }
 
-    virtual bool hit(const ray &r, double t_max, double t_min, hit_record &rec) const override;
+    virtual bool hit(const ray &r, double t_min, double t_max, hit_record &rec) const override;
 
    public:
     std::vector<shared_ptr<hittable>> objects;
 };
 
-bool hittable_list::hit(const ray &r, double t_max, double t_min, hit_record &rec) const {
+bool hittable_list::hit(const ray &r, double t_min, double t_max, hit_record &rec) const {
     hit_record temp_rec;
     bool hit_anything = false;
     auto closest_so_far = t_max;
